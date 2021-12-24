@@ -1,8 +1,8 @@
-import './PopUp.css'
+//import './PopUp.css'
 
 export class PopUp {
 
-  choice: string;
+  choice;
 
   constructor(parameters) {
     this.choice = parameters.choice;

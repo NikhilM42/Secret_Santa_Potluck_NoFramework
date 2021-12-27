@@ -1,9 +1,10 @@
-dish-menu {
+.dish-menu {
   width: 100%;
   height: 50%;
   background-color: cadetblue;
 }
 
-dish-menu table {
+.dish-menu table {
   
 }
+

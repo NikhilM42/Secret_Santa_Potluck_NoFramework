@@ -1,7 +1,10 @@
+import { DishMenuItem } from "./DishMenuItem/DishMenuItem.js";
+
 export class DishMenu {
 
   selector = 'dish-menu';
-  styles = './DishMenu.css';
+  classes = 'dish-menu';
+  styles = ['DishMenu/DishMenu.css'];
 
   availableDishes;
 
@@ -15,7 +18,7 @@ export class DishMenu {
   }
 
   getData() {
-    return ['snacks', 'drinks', 'dessert'];
+    return ['snacks', 'drinks', 'dessert', 'random'];
   }
 
   generateRows() {
@@ -23,8 +26,9 @@ export class DishMenu {
     let tableRows = '';
     data.forEach(
       (item) => {
+        let button = new DishMenuItem({ item });
         tableRows += `<tr>
-          <td>${item}</td>
+          <td>` + button.render().outerHTML + `</td>
         </tr>`;
       }
     );
@@ -33,11 +37,11 @@ export class DishMenu {
     tabledata.outerHTML = tableRows;
   }
 
-  drawMe() {
+  render() {
     this.generateRows();
-    let root = document.createElement(this.selector);
-    console.log(this.template);
-    root.innerHTML = this.template;
+    let root = document.createElement('div');
+    root.className = this.classes;
+    root.innerHTML = this.template.outerHTML;
     return root;
   }
 };
